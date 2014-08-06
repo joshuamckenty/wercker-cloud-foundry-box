@@ -1,0 +1,13 @@
+name: cloud-foundry-box
+version: 0.0.1
+inherits: wercker/ubuntu12.04-webessentials@0.0.3
+type: main
+platform: ubuntu@12.04
+description: Cloud Foundry client tools
+keywords:
+    - cloudfoundry
+script: |
+    wget http://go-cli.s3-website-us-east-1.amazonaws.com/releases/v6.3.2/cf-linux-amd64.tgz
+    tar -zxvf cf-linux-amd64.tgz
+    sudo cp cf /usr/local/bin/
+    cf api https://api.run.pivotal.io
